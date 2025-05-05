@@ -69,7 +69,28 @@ with st.spinner("📄 جارٍ تحميل وتحليل الوثيقة..."):
 
 st.success("✅ تم تجهيز النظام! يمكنك البدء بطرح الأسئلة.")
 
-question = st.text_input("❓ اكتب سؤالك هنا:", placeholder="مثال: What are the objectives?")
+# أسئلة مقترحة لتسهيل البداية على المستخدم
+suggestions = [
+    "What are the key objectives of the National Data Governance Interim Regulations?",
+    "What is the scope of data classification in the interim regulations?",
+    "Who is responsible for ensuring compliance with data privacy rules?",
+]
+
+# عرض العنوان
+st.markdown("### ✨ جرّب أحد الأسئلة الجاهزة:")
+
+# متغير لتخزين السؤال المختار
+default_question = ""
+
+# عرض الأزرار في صف أفقي
+cols = st.columns(len(suggestions))
+for i, q in enumerate(suggestions):
+    if cols[i].button(f"💬 {q[:40]}..."):  # عرض أول 40 حرف فقط لتصغير الزر
+        default_question = q
+
+# حقل إدخال السؤال مع تعبئة تلقائية إذا تم اختيار زر
+question = st.text_input("❓ اكتب سؤالك هنا:", value=default_question, placeholder="مثال: What are the objectives?")
+
 if question:
     with st.spinner("💡 جاري توليد الإجابة..."):
         top_chunks = retrieve_chunks(question, chunks, embeddings)
