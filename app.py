@@ -59,7 +59,7 @@ Answer:"""
 
 # ======================= واجهة Streamlit =========================
 st.set_page_config(page_title="RAG PDF Chatbot", layout="wide")
-st.title("🤖 اسألني عن لائحة حوكمة البيانات (NDMO)")
+st.title("By Muhannad اسألني عن لائحة حوكمة البيانات (NDMO)")
 
 pdf_path = "ndmo_en.pdf"
 with st.spinner("📄 جارٍ تحميل وتحليل الوثيقة..."):
@@ -89,7 +89,7 @@ for i, q in enumerate(suggestions):
         default_question = q
 
 # حقل إدخال السؤال مع تعبئة تلقائية إذا تم اختيار زر
-question = st.text_input("❓ اكتب سؤالك هنا:", value=default_question, placeholder="مثال: What are the objectives?")
+question = st.text_input("❓ اكتب سؤالك هنا:", value=default_question, placeholder="مثال: What is data governance?")
 
 if question:
     with st.spinner("💡 جاري توليد الإجابة..."):
