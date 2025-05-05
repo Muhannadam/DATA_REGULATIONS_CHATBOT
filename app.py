@@ -79,5 +79,6 @@ if question:
 
         with st.expander("📚 عرض المصادر المسترجعة"):
             for i, (chunk, score) in enumerate(top_chunks, 1):
-                st.markdown(f"**🔹 القطعة {i} (التشابه: {score:.2f})**\n
+                st.markdown(f"**🔹 القطعة {i} (التشابه: {score:.2f})**" + "\n\n" + chunk)
+
 {chunk}")
