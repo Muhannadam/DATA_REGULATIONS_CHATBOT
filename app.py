@@ -8,6 +8,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # إعداد Groq
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+@st.cache_data(ttl=3600)
+def list_groq_models():
+    models = client.models.list()
+    return [m.id for m in models.data]
+
+with st.sidebar:
+    st.write("Available Groq models:")
+    st.write(list_groq_models())
+
 
 # تحميل النموذج
 model = SentenceTransformer("all-MiniLM-L6-v2")
