@@ -10,7 +10,7 @@ This project is a Retrieval-Augmented Generation (RAG) chatbot that answers ques
 
 ## How to Use
 
-Use the Link: 
+Use the Link:
 https://mhnd-chatbot.streamlit.app/
 
 ## 🌐 Deploy to Streamlit Cloud
